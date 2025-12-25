@@ -1,171 +1,149 @@
-<!DOCTYPE html><html lang="fr">
+    <!DOCTYPE html><html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Joyeux Noël & Bonne Année 2026</title>
-  <style>
-    :root {
-      --red: #c62828;
-      --green: #2e7d32;
-      --gold: #ffd54f;
-      --dark: #0b1d26;
-    }* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', system-ui, sans-serif;
-}
-
-body {
-  min-height: 100vh;
-  background: radial-gradient(circle at top, #123, #000);
-  color: white;
-  overflow-x: hidden;
-}
-
-canvas {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-}
-
-main {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem 1rem;
-}
-
-h1 {
-  font-size: clamp(2.2rem, 6vw, 4rem);
-  color: var(--gold);
-  animation: glow 2.5s ease-in-out infinite alternate;
-}
-
-h2 {
-  margin-top: 1rem;
-  font-size: clamp(1.4rem, 4vw, 2.2rem);
-  color: #e0f2f1;
-  opacity: 0;
-  animation: fadeIn 2s ease forwards;
-  animation-delay: 1.5s;
-}
-
-.card {
-  margin-top: 2.5rem;
-  max-width: 600px;
-  background: rgba(0,0,0,0.55);
-  border-radius: 20px;
-  padding: 2rem;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-  animation: slideUp 1.8s ease forwards;
-  animation-delay: 2.5s;
-  opacity: 0;
-}
-
-.card p {
-  line-height: 1.7;
-  font-size: 1.05rem;
-}
-
-.year {
-  margin-top: 2rem;
-  font-size: clamp(2.5rem, 7vw, 5rem);
-  font-weight: bold;
-  background: linear-gradient(90deg, #ffd54f, #fff, #ffd54f);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shine 3s linear infinite;
-}
-
-footer {
-  margin-top: 3rem;
-  font-size: 0.85rem;
-  opacity: 0.7;
-}
-
-@keyframes glow {
-  from { text-shadow: 0 0 10px #ffd54f; }
-  to   { text-shadow: 0 0 30px #ffd54f, 0 0 60px #ffecb3; }
-}
-
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
-
-@keyframes slideUp {
-  from { transform: translateY(40px); opacity: 0; }
-  to   { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes shine {
-  to { background-position: 200% center; }
-}
-
-@media (max-width: 480px) {
-  .card { padding: 1.4rem; }
-}
-
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Noël & Nouvel An 2026 – Carte Animée</title>
+<style>
+:root{--night:#020617;--sky:#020b2d;--gold:#facc15;--red:#ef4444;--green:#22c55e;--white:#fff}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:radial-gradient(circle at top,var(--sky),var(--night));color:#fff;overflow:hidden}
+canvas{position:fixed;inset:0}
+.ui{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1rem}
+h1{font-size:clamp(2.4rem,6vw,4.2rem);letter-spacing:.12em;animation:glow 3s infinite alternate}
+h2{margin-top:1rem;font-size:clamp(1.2rem,4vw,2.2rem);color:var(--gold)}
+.countdown{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:2.5rem}
+.box{background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border-radius:16px;padding:1rem 1.3rem;min-width:80px}
+.box span{display:block;font-size:1.8rem;font-weight:bold;color:var(--gold)}
+.lang{position:fixed;top:1rem;right:1rem;z-index:2;display:flex;gap:.4rem}
+.lang button{background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.25);color:#fff;padding:.4rem .6rem;border-radius:6px;cursor:pointer;font-size:.75rem}
+footer{position:fixed;bottom:1rem;width:100%;text-align:center;font-size:.85rem;opacity:.9;z-index:1}
+@keyframes glow{from{text-shadow:0 0 12px var(--gold)}to{text-shadow:0 0 35px var(--red),0 0 60px var(--gold)}}
+</style>
 </head>
-<body>  <!-- Canvas neige --><canvas id="snow"></canvas>
-
-  <!-- Musique de Noël (autoplay) -->  <audio autoplay loop>
-    <source src="https://cdn.pixabay.com/audio/2022/12/22/audio_7b4b9b9b0c.mp3" type="audio/mpeg">
-  </audio>  <main>
-    <h1>🎄 Joyeux Noël 🎄</h1>
-    <h2>Que la magie de Noël illumine vos fêtes</h2><div class="card">
-  <p>
-  
-  </p>
-  <div class="year">🎇🎉Bientôt __ 2026 ✨</div>
+<body>
+<canvas id="scene"></canvas><div class="lang">
+<button onclick="setLang('fr')">FR</button>
+<button onclick="setLang('en')">EN</button>
+<button onclick="setLang('mg')">MG</button>
+</div><div class="ui">
+<h1 id="title">✨🎄Joyeux Noël🎄✨</h1>
+<h2 id="subtitle">En route vers 2026 ✨</h2>
+<div class="countdown">
+<div class="box"><span id="d">0</span><small id="ld">Jours</small></div>
+<div class="box"><span id="h">0</span><small id="lh">Heures</small></div>
+<div class="box"><span id="m">0</span><small id="lm">Minutes</small></div>
+<div class="box"><span id="s">0</span><small id="ls">Secondes</small></div>
 </div>
+</div><footer id="footerText"></footer><!-- Musique festive (auto, sans bouton) --><audio autoplay loop>
+<source src="https://cdn.pixabay.com/audio/2022/10/30/audio_0c6a9c7f5e.mp3" type="audio/mpeg">
+</audio><script>
+/* ===== SETUP CANVAS ===== */
+const canvas=document.getElementById('scene');
+const ctx=canvas.getContext('2d');
+let w,h;
+function resize(){w=canvas.width=innerWidth;h=canvas.height=innerHeight}
+addEventListener('resize',resize);resize();
 
-<footer>
-  ❄️ Merci à tous ❄️
-</footer>
+/* ===== STARS ===== */
+const stars=Array.from({length:120},()=>({x:Math.random()*w,y:Math.random()*h*.5,a:Math.random()}));
 
-  </main>  <script>
-    // Animation neige sur canvas
-    const canvas = document.getElementById('snow');
-    const ctx = canvas.getContext('2d');
-    let w, h;
+/* ===== SNOW ===== */
+const snow=Array.from({length:180},()=>({x:Math.random()*w,y:Math.random()*h,r:Math.random()*2+1,s:Math.random()+.5}));
 
-    function resize() {
-      w = canvas.width = window.innerWidth;
-      h = canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resize);
-    resize();
+/* ===== FIREWORKS ===== */
+class Particle{constructor(x,y,vx,vy,c,l){this.x=x;this.y=y;this.vx=vx;this.vy=vy;this.c=c;this.l=l}
+update(){this.x+=this.vx;this.y+=this.vy;this.vy+=.03;this.l--}
+draw(){ctx.fillStyle=this.c;ctx.fillRect(this.x,this.y,2,2)}}
+let parts=[];
+function firework(big=false){const x=Math.random()*w,y=Math.random()*h*.4;
+const colors=['#facc15','#ef4444','#22c55e','#38bdf8'];
+const n=big?500:120;
+for(let i=0;i<n;i++){const a=Math.random()*Math.PI*2,s=Math.random()*(big?7:4);
+parts.push(new Particle(x,y,Math.cos(a)*s,Math.sin(a)*s,colors[Math.floor(Math.random()*colors.length)],big?140:90))}}
+setInterval(()=>firework(false),1500);
 
-    const flakes = Array.from({ length: 160 }, () => ({
-      x: Math.random() * w,
-      y: Math.random() * h,
-      r: Math.random() * 3 + 1,
-      s: Math.random() * 1 + 0.5
-    }));
+/* ===== SANTA ===== */
+let santaX=-0;
+function drawSanta(){
+  santaX+=.0;
+  if(santaX>w+0)
+  santaX=-0;
+  ctx.fillStyle='#ef4444';
+  ctx.fillRect(santaX,h*.0,0,22);
+  ctx.fillStyle='transparent';
+  ctx.fillRect(santaX+25,h*.28-14,22,14)
+}
 
-    function draw() {
-      ctx.clearRect(0, 0, w, h);
-      ctx.fillStyle = 'white';
-      flakes.forEach(f => {
-        ctx.beginPath();
-        ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
-        ctx.fill();
-        f.y += f.s;
-        if (f.y > h) {
-          f.y = -10;
-          f.x = Math.random() * w;
-        }
-      });
-      requestAnimationFrame(draw);
-    }
-    draw();
-  </script></body>
+/* ===== TREE ===== */
+function drawTree(){
+  const x=w*.5, y=h*.42;
+  ctx.fillStyle='#14532d';
+  ctx.beginPath();
+  ctx.moveTo(x,y);
+  ctx.lineTo(x-0,y+0);
+  ctx.lineTo(x+0,y+0);
+  ctx.closePath();
+  ctx.fill();
+['#ef4444','#facc15','#38bdf8'].forEach((c,i)=>{ctx.fillStyle=c;ctx.beginPath();ctx.arc(x+(i-1)*22,y+70+i*18,4,0,Math.PI*2);ctx.fill()})}  
+
+/* ===== ANIMATE ===== */
+function animate(){
+  ctx.fillStyle='rgba(2,6,23,.25)';
+  ctx.fillRect(0,0,w,h);
+  
+// stars
+    stars.forEach(s=>{s.a+=.02;
+    ctx.fillStyle=`rgba(255,255,255,${.3+Math.sin(s.a)*.3})`;
+    ctx.fillRect(s.x,s.y,1,1)});
+  
+// snow
+    ctx.fillStyle='#fff';
+    snow.forEach(f=>{f.y+=f.s;if(f.y>h)f.y=0;
+    ctx.beginPath();
+      ctx.arc(f.x,f.y,f.r,0,Math.PI*2);
+      ctx.fill()});
+  
+// fireworks
+  parts=parts.filter(p=>p.l>0);
+  parts.forEach(p=>{p.update();p.draw()});
+  
+// santa + tree
+ drawSanta();
+  drawTree();
+  requestAnimationFrame(animate)
+}
+  
+animate();
+
+  
+/* ===== COUNTDOWN + MIDNIGHT SHOW ===== */
+const target=new Date('2026-01-01T00:00:00').getTime();let done=false;
+setInterval(()=>{const diff=target-Date.now();
+if(diff<=0&&!done){done=true;for(let i=0;i<8;i++)setTimeout(()=>firework(true),i*350)}
+if(diff<0)return;
+document.getElementById('d').textContent=Math.floor(diff/86400000);
+document.getElementById('h').textContent=Math.floor(diff/3600000)%24;
+document.getElementById('m').textContent=Math.floor(diff/60000)%60;
+document.getElementById('s').textContent=Math.floor(diff/1000)%60},1000);
+
+/* ===== LANG ===== */
+const T={
+fr:{t:'✨🎄Joyeux Noël🎄✨',s:'En route vers 2026 ✨',f:'✨❄️💖 Que 2026 vous apporte bonheur, santé et réussite 💖❄️✨',d:'Jours',h:'Heures',m:'Minutes',s2:'Secondes'},
+en:{t:'✨🎄Merry Christmas🎄✨',s:'Heading to 2026 ✨',f:'✨❄️💖 May 2026 bring you happiness, health and success 💖❄️✨',d:'Days',h:'Hours',m:'Minutes',s2:'Seconds'},
+mg:{t:'✨🎄Mirary Krismasy Sambatra🎄✨',s:'Eo ampiandrasana ny taona 2026 ✨',f:'✨❄️💖 Enga anie hitondra fahasambarana sy fahombiazana ny 2026 💖❄️✨',d:'Andro',h:'Ora',m:'Minitra',s2:'Segondra'}
+};
+  
+function setLang(l){
+  title.textContent=T[l].t;
+  subtitle.textContent=T[l].s;
+  footerText.textContent=T[l].f;
+  ld.textContent=T[l].d;
+  lh.textContent=T[l].h;
+  lm.textContent=T[l].m;
+  ls.textContent=T[l].s2
+}
+  
+ setLang('mg');
+  </script>
+</body>
 </html>
