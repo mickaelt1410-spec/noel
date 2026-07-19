@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="mg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ho anao...</title>
+    <link rel="stylesheet" href="st_$_le.css">
+</head>
+<body>
+
+    <!-- 1. Pejy Login -->
+    <div id="password-screen">
+        <div class="pwd-box">
+            <h3>Login</h3>
+            <p>Ampidiro ny teny miafina hahafahanandry mamaky ny hafatra...</p>
+            <input type="password" id="pwd-input" placeholder="...Mot de passe..." onkeypress="checkEnter(event)">
+            <button onclick="verifyPassword()">OK</button>
+            <p id="error-msg" class="error-msg">Diso ny teny miafina, andramo indray! 🤍</p>
+        </div>
+    </div>
+
+    <!-- 2. First page (contenu) -->
+    <div id="main-content">
+        <div class="image-container">
+            <!--  (Sary 1:1) -->
+            <img src="miange.jpg" alt="Erica" class="love-image">
+        </div>
+
+        <div class="letter-container">
+            <div id="letter-content">
+                <!-- TXT -->
+            </div>
+            <div id="signature" class="signature">~ Avy amin'ny f💖k💖 manontolo ~</div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
