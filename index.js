@@ -14,7 +14,7 @@
             "Hatramzay nahafantarako andry zay dia mieritreritra andry fona zah isanandro, isan'ora, isan-tsegondra🥺, 🙀ay mbola misy isa-minitra kay aloha😊🙈;",
             "Tsy mahita tory mintsy aza mo ndraindray 😥,",
             "@fotoana amakiandry an'ity dia te ilaza amndry zah fa misy toerana lehibe ho andry ato am-poko 💖😽.",
-            "Fantatro oe sarotra be le izy fa lazaiko ihany nefa satria tsisy mahalala ny ao am-po tsy miloaka hoy ny fitenenana zay🥺,",
+            "Fantatro oe sarotra be le izy, ary na zah ary matahotra ny ilaza fa lazaiko ihany anefa satria tsisy mahalala ny ao am-po tsy miloaka hoy ny fitenenana zay🥺,",
             "✨Tiako be ndry!🥺🥰",
             "Tsy biscuit tsony 🙈 fa Bisouuu 💋😽",
 
