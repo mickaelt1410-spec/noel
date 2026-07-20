@@ -2,7 +2,7 @@
         // --- JAVASCRIPT ---
 
         // 1. Teny miafina mialoha (Azonao ovaina eto araka izay tianao)
-        const Mdp = "324287153"; 
+        const Mdp = "4287153"; 
         const nom = "Miangaly" ;
         //3242871530
         // 2. Andalana fitoriam-pitiavana (Miseho tsikelikely)
